@@ -84,7 +84,6 @@ Return: integer
 */
 int Score::analyze_theme(Melody *melody)
 {
-
 	if(melody->get_form_used().length() != 0)
 	{
 		return 20*pow(PROG_POW_BASE, 7);
@@ -93,7 +92,6 @@ int Score::analyze_theme(Melody *melody)
 	{
 		return 0;
 	}
-	
 	
 }
 

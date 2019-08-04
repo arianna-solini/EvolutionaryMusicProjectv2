@@ -151,9 +151,6 @@ const int MAX_CHILDREN = 40; // max amount of children a MelodyNode can have
 
 const int MIDI_CORRECTION = 24; // offset to midi numbers
 
-// "roulette" is only option right now
-// da sistemare quando aggiungeremo le altre
-const std::string CHOOSE_MODE = "roulette";
 
 // enable all debugging print statements
 const bool DEBUG_MODE = false;

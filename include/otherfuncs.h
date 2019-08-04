@@ -10,6 +10,9 @@
 // convert pitch number (0-11) to string
 std::string pitch_to_string(int pitch);
 
+
+int tournament_selection(int pop[], int size, int k);
+
 // select index based on array of probabilities
 int roulette_wheel(float array[], int size);
 

@@ -77,6 +77,20 @@ Args: array of floats and integer array size
 Return: integer index
 Note: array of float numbers must add to one
 */
+
+int tournament_selection(int pop[], int size, int k) {
+
+    int best = -1;
+    for (int i = 0; i < k; i++) {
+        int ind = random_int(1, size);
+        if ((best == -1) || pop[ind] > pop[best])
+            best = ind;
+
+    }
+
+    return best;
+}
+
 int roulette_wheel(float array[], int size)
 {
 	// resolution of chance: 100000

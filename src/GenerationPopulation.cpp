@@ -12,6 +12,7 @@ using namespace std;
 #include "../include/melody.h"
 #include "../include/parameters/constants.h"
 #include "../include/MelodyNode.h"
+#include "../include/commonfuncs.h"
 
 /* GenerationPopulation
  * Purpose: Default Constructor,
@@ -44,55 +45,104 @@ GenerationPopulation::GenerationPopulation
         // new array of probabilities for picking parents
         //float probabilities[NUM_MELODIES];
 
-        float* probabilities = new float[NUM_MELODIES];
 
-        // get total score
-        int score = 0;
-        for (int i = 0; i < generation.count; i++)
-        {
+
+        if(CHOOSE_MODE == "roulette") {
+
+            float *probabilities = new float[NUM_MELODIES];
+
+            // get total score
+            int score = 0;
+            for (int i = 0; i < generation.count; i++)
+            {
                 score += generation.elementAt(i)->
-                get_fitness();
-        }
+                        get_fitness();
+            }
 
-        // fill probabilities of picking melodies, based on old gen
-        for (int i = 0; i < generation.count; i++)
-        {
+            // fill probabilities of picking melodies, based on old gen
+            for (int i = 0; i < generation.count; i++) {
                 int fitness = generation.elementAt(i)->get_fitness();
                 probabilities[i] = fitness / ((float) score);
-        }
-        
-        // fill the melodies in this generation by breeding
-        for (int i = 0; i < NUM_MELODIES; i++)
-        {
+            }
+
+            // fill the melodies in this generation by breeding
+            for (int i = 0; i < NUM_MELODIES; i++) {
                 // pick two parent melodies
 
-                int momIndex = roulette_wheel(probabilities, 
-                        generation.count);
-                int dadIndex = roulette_wheel(probabilities, 
-                        generation.count);
+                int momIndex = roulette_wheel(probabilities,
+                                              generation.count);
+                int dadIndex = roulette_wheel(probabilities,
+                                              generation.count);
 
 
                 // ensure MAX_CHILDREN hasn't been reached, and that
                 // the parents are not the same
-                while (!generation.array[momIndex].can_add_child() 
-                        || !generation.array[dadIndex].can_add_child() 
-                        || momIndex == dadIndex)
-                {
-                        momIndex = roulette_wheel(probabilities, 
-                                generation.count);
-                        dadIndex = roulette_wheel(probabilities, 
-                                generation.count);
+                while (!generation.array[momIndex].can_add_child()
+                       || !generation.array[dadIndex].can_add_child()
+                       || momIndex == dadIndex) {
+                    momIndex = roulette_wheel(probabilities,
+                                              generation.count);
+                    dadIndex = roulette_wheel(probabilities,
+                                              generation.count);
                 }
 
                 // generate a child
                 MelodyNode child(&(generation.array[momIndex]),
-                        &(generation.array[dadIndex]));
+                                 &(generation.array[dadIndex]));
 
                 // copy the child to memory
                 insertAtBack(child);
+
+
+            }
+            delete[] probabilities;
         }
-        delete[] probabilities;
+        else if(CHOOSE_MODE == "tournament"){
+
+            int *each_score = new int[NUM_MELODIES];
+
+            for (int i = 0; i < generation.count; i++) {
+                int fitness = generation.elementAt(i)->get_fitness();
+                each_score[i] = fitness;
+            }
+
+            int k = random_int(2, NUM_MELODIES/5);
+
+            // fill the melodies in this generation by breeding
+            for (int i = 0; i < NUM_MELODIES; i++) {
+                // pick two parent melodies
+
+                int momIndex = tournament_selection(each_score,
+                                              generation.count, k);
+                int dadIndex = tournament_selection(each_score,
+                                              generation.count, k);
+
+
+                // ensure MAX_CHILDREN hasn't been reached, and that
+                // the parents are not the same
+                while (!generation.array[momIndex].can_add_child()
+                       || !generation.array[dadIndex].can_add_child()
+                       || momIndex == dadIndex) {
+                    momIndex = tournament_selection(each_score,
+                                              generation.count, k);
+                    dadIndex = tournament_selection(each_score,
+                                              generation.count, k);
+                }
+
+                // generate a child
+                MelodyNode child(&(generation.array[momIndex]),
+                                 &(generation.array[dadIndex]));
+
+                // copy the child to memory
+                insertAtBack(child);
+
+            }
+        }
+
+
 }
+
+
 
 /* Initialize class data
 Args: none
