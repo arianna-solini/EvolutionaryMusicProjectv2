@@ -1,0 +1,122 @@
+use_synth :piano
+#Forma musicale: 
+play 49, sustain: 0.5
+sleep 0.5
+play 42, sustain: 0.5
+sleep 0.5
+play 37, sustain: 0.5
+sleep 0.5
+play 40, sustain: 0.5
+sleep 0.5
+play 42, sustain: 0.5
+sleep 0.5
+play 40, sustain: 0.5
+sleep 0.5
+play 41, sustain: 0.5
+sleep 0.5
+play 37, sustain: 0.5
+sleep 0.5
+play 27, sustain: 0.5
+sleep 0.5
+play 29, sustain: 0.5
+sleep 0.5
+play 37, sustain: 0.5
+sleep 0.5
+play 42, sustain: 0.5
+sleep 0.5
+play 37, sustain: 0.5
+sleep 0.5
+play 40, sustain: 0.5
+sleep 0.5
+play 42, sustain: 0.5
+sleep 0.5
+play 40, sustain: 0.5
+sleep 0.5
+play 41, sustain: 0.5
+sleep 0.5
+play 37, sustain: 0.5
+sleep 0.5
+#pausa
+sleep 0.5
+play 29, sustain: 0.5
+sleep 0.5
+play 40, sustain: 0.5
+sleep 0.5
+play 41, sustain: 0.5
+sleep 0.5
+play 37, sustain: 0.5
+sleep 0.5
+play 27, sustain: 0.5
+sleep 0.5
+#pausa
+sleep 0.5
+play 38, sustain: 0.5
+sleep 0.5
+play 31, sustain: 0.5
+sleep 0.5
+play 38, sustain: 0.5
+sleep 0.5
+play 41, sustain: 0.5
+sleep 0.5
+play 43, sustain: 0.5
+sleep 0.5
+play 49, sustain: 0.5
+sleep 0.5
+#pausa
+sleep 0.5
+#pausa
+sleep 0.5
+play 40, sustain: 0.5
+sleep 0.5
+play 42, sustain: 0.5
+sleep 0.5
+play 40, sustain: 0.5
+sleep 0.5
+play 41, sustain: 0.5
+sleep 0.5
+play 37, sustain: 0.5
+sleep 0.5
+play 27, sustain: 0.5
+sleep 0.5
+play 29, sustain: 0.5
+sleep 0.5
+play 38, sustain: 0.5
+sleep 0.5
+play 31, sustain: 0.5
+sleep 0.5
+play 38, sustain: 0.5
+sleep 0.5
+play 41, sustain: 0.5
+sleep 0.5
+play 43, sustain: 0.5
+sleep 0.5
+play 49, sustain: 0.5
+sleep 0.5
+play 42, sustain: 0.5
+sleep 0.5
+play 37, sustain: 0.5
+sleep 0.5
+play 40, sustain: 0.5
+sleep 0.5
+play 42, sustain: 0.5
+sleep 0.5
+play 49, sustain: 0.5
+sleep 0.5
+play 42, sustain: 0.5
+sleep 0.5
+play 37, sustain: 0.5
+sleep 0.5
+play 40, sustain: 0.5
+sleep 0.5
+play 42, sustain: 0.5
+sleep 0.5
+play 40, sustain: 0.5
+sleep 0.5
+play 41, sustain: 0.5
+sleep 0.5
+play 37, sustain: 0.5
+sleep 0.5
+play 27, sustain: 0.5
+sleep 0.5
+play 29, sustain: 0.5
+sleep 0.5
