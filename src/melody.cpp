@@ -293,6 +293,7 @@ Returns: none
 void Melody::print_melody()
 {
     cout << "------------ Melody ------------" << endl;
+    cout << "Form" << this->get_form_used() << endl;
         for (int i = 0; i < count; i++)
         {
                  cout << "      "; notes[i].print_note();
@@ -428,6 +429,7 @@ void Melody::mutate()
         //Note n = notes[random_int(0, count-1)];
         //n.set_pitch(random_int(0,11)); n.update();
         form_used = "SONO in mutate";
+
         // Smoothing
         for (int i = 0; i < SMOOTHING_ATTEMPTS; i++)
         {
@@ -527,7 +529,7 @@ void Melody::thematic_generation(int form)
                         theme_window[i]= notes[i];
                 }
                 //forma bipartita
-                if(form == 1)
+                if(form == 2)
                 {
                         form_used = "BIPARTITA";
                         int variation = random_int(1,11);
