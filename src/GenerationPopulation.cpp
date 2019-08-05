@@ -40,13 +40,11 @@ Return: none
 GenerationPopulation::GenerationPopulation
 (GenerationPopulation &generation)
 {
+        // In init() vengono creati a random 10 nuovi MelodyNode
         init();
 
         // new array of probabilities for picking parents
-        //float probabilities[NUM_MELODIES];
-
-
-
+        // roulette wheel
         if(CHOOSE_MODE == "roulette") {
 
             float *probabilities = new float[NUM_MELODIES];
@@ -97,6 +95,7 @@ GenerationPopulation::GenerationPopulation
             }
             delete[] probabilities;
         }
+        // tournament selection
         else if(CHOOSE_MODE == "tournament"){
 
             int *each_score = new int[NUM_MELODIES];
