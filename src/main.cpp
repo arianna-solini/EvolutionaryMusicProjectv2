@@ -34,7 +34,6 @@ std::string CHOOSE_MODE;
 
 int main () 
 {
-	//screen_clear();
 	start_message();
 	assign_defaults();
 	options();
@@ -65,7 +64,7 @@ void assign_defaults()
 	KEY = C;
 	OUTPUT_FILE = "../outputSonic/Best_Melody";
     CHOOSE_MODE = "roulette";
-	//FORM_MUSIC = "TRIPARTITA";
+	FORM_MUSIC = "TRIPARTITA";
 }
 
 void options()
@@ -78,7 +77,7 @@ void options()
 	cout << "	# Musical Key: C" << endl;
 	cout << "	# Output File Name: Best_Melody" << endl;
     cout << "	# Selection Mechanism: roulette" << endl;
-	//cout << "	# Form of the melodies: TRIPARTITA" << endl;
+	cout << "	# Form of the melodies: TRIPARTITA" << endl;
 
 	string response;
 	cout <<"Use default options? Type \"yes\" or \"no\": " << endl;
@@ -133,10 +132,10 @@ void user_options()
         if(str == "tournament") {CHOOSE_MODE = "tournament";}
         if(str == "roulette") {CHOOSE_MODE = "roulette";}
 
-	/*cout << "	# Form of the melodies (MONO, BI, TRI): ";
+	cout << "	# Form of the melodies (MONO, BI, TRI): ";
 		cin >> str;
 		if(str == "MONO") { FORM_MUSIC = "MONOPARTITA";}
 		if(str == "BI") { FORM_MUSIC = "BIPARTITA";}
-		if(str == "TRI") { FORM_MUSIC = "TRIPARTITA";}*/
+		if(str == "TRI") { FORM_MUSIC = "TRIPARTITA";}
 
 }

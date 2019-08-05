@@ -78,11 +78,15 @@ Args: pointer to a Melody
 Return: integer
 */
 int Score::analyze_theme(Melody *melody) {
+    int score = 0;
     if (melody->get_form_used().length() != 0) {
-        return 20 * pow(PROG_POW_BASE, 7);
+        score = THEME_POINTS * pow(PROG_POW_BASE, 7); // da sostituire con num_match()
+        if(melody->get_form_used() == FORM_MUSIC)
+            score = score * THEME_POINTS;
     } else {
-        return 0;
+        //do nothing
     }
+    return score;
 
 }
 

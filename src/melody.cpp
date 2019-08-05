@@ -478,11 +478,10 @@ void Melody::subdivide(int first_note)
 }
 
 /* generates thematic material, copies one part of the melody
-        and imposes either the rhtyhm or intervalic 
-        content onto a different part of the melody
-Args: integer
-Returns: none
-*/
+    and imposes either the rhtyhm or intervalic content onto a different part of the melody
+    Args: integer
+    Returns: none
+ */
 void Melody::thematic_generation(int form)
 {
 
@@ -608,4 +607,3 @@ void Melody::set_num_match(int num){
 int Melody::get_num_match(){
         return num_match;
 }
-
