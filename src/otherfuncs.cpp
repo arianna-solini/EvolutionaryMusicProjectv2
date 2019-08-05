@@ -19,55 +19,52 @@ Args: integer pitch (0-11)
 Return: string pitch label
 */
 
-std::string pitch_to_string(int pitch)
-{
-	std::string pitch_string = "";
+std::string pitch_to_string(int pitch) {
+    std::string pitch_string = "";
 
-	// sharp keys
-	if (KEY == C
-		|| KEY == G
-		|| KEY == D
-		|| KEY == A
-		|| KEY == E
-		|| KEY == B)
-	{
-		if (pitch == 0) {pitch_string = "c";}
-	        if (pitch == 1) {pitch_string = "c#";}
-	        if (pitch == 2) {pitch_string = "d";}
-	        if (pitch == 3) {pitch_string = "d#";}
-	        if (pitch == 4) {pitch_string = "e";}
-	        if (pitch == 5) {pitch_string = "f";}
-	        if (pitch == 6) {pitch_string = "f#";}
-	        if (pitch == 7) {pitch_string = "g";}
-	        if (pitch == 8) {pitch_string = "g#";}
-	        if (pitch == 9) {pitch_string = "a";}
-	        if (pitch == 10) {pitch_string = "a#";}
-	        if (pitch == 11) {pitch_string = "b";}
-	}
-      
-      	// flat keys
-	if (KEY == F
-                || KEY == AS
-                || KEY == DS
-                || KEY == GS
-                || KEY == CS
-                || KEY == FS)
-        {
-		if (pitch == 0) {pitch_string = "c";}
-        	if (pitch == 1) {pitch_string = "db";}
-	        if (pitch == 2) {pitch_string = "d";}
-	        if (pitch == 3) {pitch_string = "eb";}
-	        if (pitch == 4) {pitch_string = "e";}
-	        if (pitch == 5) {pitch_string = "f";}
-	        if (pitch == 6) {pitch_string = "gb";}
-	        if (pitch == 7) {pitch_string = "g";}
-	        if (pitch == 8) {pitch_string = "ab";}
-	        if (pitch == 9) {pitch_string = "a";}
-	        if (pitch == 10) {pitch_string = "bb";}
-	        if (pitch == 11) {pitch_string = "b";}
-        }
+    // sharp keys
+    if (KEY == C
+        || KEY == G
+        || KEY == D
+        || KEY == A
+        || KEY == E
+        || KEY == B) {
+        if (pitch == 0) { pitch_string = "c"; }
+        if (pitch == 1) { pitch_string = "c#"; }
+        if (pitch == 2) { pitch_string = "d"; }
+        if (pitch == 3) { pitch_string = "d#"; }
+        if (pitch == 4) { pitch_string = "e"; }
+        if (pitch == 5) { pitch_string = "f"; }
+        if (pitch == 6) { pitch_string = "f#"; }
+        if (pitch == 7) { pitch_string = "g"; }
+        if (pitch == 8) { pitch_string = "g#"; }
+        if (pitch == 9) { pitch_string = "a"; }
+        if (pitch == 10) { pitch_string = "a#"; }
+        if (pitch == 11) { pitch_string = "b"; }
+    }
 
-        return pitch_string;
+    // flat keys
+    if (KEY == F
+        || KEY == AS
+        || KEY == DS
+        || KEY == GS
+        || KEY == CS
+        || KEY == FS) {
+        if (pitch == 0) { pitch_string = "c"; }
+        if (pitch == 1) { pitch_string = "db"; }
+        if (pitch == 2) { pitch_string = "d"; }
+        if (pitch == 3) { pitch_string = "eb"; }
+        if (pitch == 4) { pitch_string = "e"; }
+        if (pitch == 5) { pitch_string = "f"; }
+        if (pitch == 6) { pitch_string = "gb"; }
+        if (pitch == 7) { pitch_string = "g"; }
+        if (pitch == 8) { pitch_string = "ab"; }
+        if (pitch == 9) { pitch_string = "a"; }
+        if (pitch == 10) { pitch_string = "bb"; }
+        if (pitch == 11) { pitch_string = "b"; }
+    }
+
+    return pitch_string;
 }
 
 /* Picks an index given an array of probabilities,
@@ -91,25 +88,23 @@ int tournament_selection(int pop[], int size, int k) {
     return best;
 }
 
-int roulette_wheel(float array[], int size)
-{
-	// resolution of chance: 100000
-	int chance = random_int(1, 100000);
-	
-	int counter = 0;
-	int slice_sum = 0;
+int roulette_wheel(float array[], int size) {
+    // resolution of chance: 100000
+    int chance = random_int(1, 100000);
 
-	// select index as if each chance had proportional
-	// windows that added to 100000
-	bool done = false;
-	while (!done)
-	{
-		slice_sum += (int)(array[counter] * 100000.0);
-		counter++;
-		done = (slice_sum >= chance || counter >= size);
-	}
+    int counter = 0;
+    int slice_sum = 0;
 
-	return counter-1;
+    // select index as if each chance had proportional
+    // windows that added to 100000
+    bool done = false;
+    while (!done) {
+        slice_sum += (int) (array[counter] * 100000.0);
+        counter++;
+        done = (slice_sum >= chance || counter >= size);
+    }
+
+    return counter - 1;
 }
 
 
@@ -118,22 +113,18 @@ int roulette_wheel(float array[], int size)
 Args: integer scale degree (0-11)
 Return: boolean
 */
-bool is_diatonic(int scale_degree)
-{
-	if (scale_degree == 0
-		|| scale_degree == 2
-		|| scale_degree == 4
-		|| scale_degree == 5
-		|| scale_degree == 7
-		|| scale_degree == 9
-		|| scale_degree == 11)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
+bool is_diatonic(int scale_degree) {
+    if (scale_degree == 0
+        || scale_degree == 2
+        || scale_degree == 4
+        || scale_degree == 5
+        || scale_degree == 7
+        || scale_degree == 9
+        || scale_degree == 11) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 /* Checks whether an integer is
@@ -141,19 +132,16 @@ bool is_diatonic(int scale_degree)
 Args: integer, array of integers, array size
 Return: boolean
 */
-bool in_array(int integer, int array[], int array_size)
-{
-	bool included = false;
+bool in_array(int integer, int array[], int array_size) {
+    bool included = false;
 
-	for (int i = 0; i < array_size; i++)
-	{
-		if (array[i] == integer)
-		{
-			included = true;
-		}
-	}
+    for (int i = 0; i < array_size; i++) {
+        if (array[i] == integer) {
+            included = true;
+        }
+    }
 
-	return included;
+    return included;
 }
 
 // COULD BE UPDATED

@@ -107,22 +107,22 @@ const int TONIC_ENDPOINTS = 30;
 const int SMOOTHNESS_POINTS = 1;
 
 // points assigned to good rhytmic distribution (note or pause)
-const float STRONG_BEAT_LONG = 10; // > 0.25
+const int STRONG_BEAT_LONG = 10; // > 0.25
 
 //points assigned to recognition of a pattern (theme)
-const float THEME_POINTS = 1000;
+const int THEME_POINTS = 10;
 //const float MONO_CHOSEN = 5;
 //const float BI_CHOSEN = 5;
 //const float TRI_CHOSEN = 5;
 
 //points assigned to sensible resolving on tonic
-const float SENSIBLE_POINTS = 50;
+const int SENSIBLE_POINTS = 50;
 
 ////////////////////////////////////////////////////////////////
 //////////////////////// OTHER PARAMETERS //////////////////////
 ////////////////////////////////////////////////////////////////
 
-const int MONO_WINDOW = 15;
+const int MONO_WINDOW = 13;
 const int BI_TRI_WINDOW = 10;
 
 const float PROG_POW_BASE = 2.0;

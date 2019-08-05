@@ -273,6 +273,7 @@ Melody& Melody::operator=(Melody &melody)
         // shallow copies
         capacity = melody.capacity;
         count = melody.count;
+        form_used = melody.form_used;
 
         // deep copy
         notes = new Note[count];
@@ -293,7 +294,6 @@ Returns: none
 void Melody::print_melody()
 {
     cout << "------------ Melody ------------" << endl;
-    cout << "Form" << this->get_form_used() << endl;
         for (int i = 0; i < count; i++)
         {
                  cout << "      "; notes[i].print_note();
@@ -428,7 +428,6 @@ void Melody::mutate()
         // try to mutate a random note
         //Note n = notes[random_int(0, count-1)];
         //n.set_pitch(random_int(0,11)); n.update();
-        form_used = "SONO in mutate";
 
         // Smoothing
         for (int i = 0; i < SMOOTHING_ATTEMPTS; i++)
@@ -479,11 +478,10 @@ void Melody::subdivide(int first_note)
 }
 
 /* generates thematic material, copies one part of the melody
-        and imposes either the rhtyhm or intervalic 
-        content onto a different part of the melody
-Args: integer
-Returns: none
-*/
+    and imposes either the rhtyhm or intervalic content onto a different part of the melody
+    Args: integer
+    Returns: none
+ */
 void Melody::thematic_generation(int form)
 {
 
@@ -609,4 +607,3 @@ void Melody::set_num_match(int num){
 int Melody::get_num_match(){
         return num_match;
 }
-
