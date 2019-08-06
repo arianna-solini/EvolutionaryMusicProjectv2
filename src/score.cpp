@@ -7,6 +7,7 @@
 #include<iostream>
 #include <cstdlib>
 #include <cmath>
+#include <string>
 
 using namespace std;
 
@@ -78,7 +79,7 @@ Args: pointer to a Melody
 Return: integer
 */
 int Score::analyze_theme(Melody *melody) {
-    int score = 0;
+    /*int score = 0;
     if (melody->get_form_used().length() != 0) {
         score = THEME_POINTS * pow(PROG_POW_BASE, 7); // da sostituire con num_match()
         if(melody->get_form_used() == FORM_MUSIC)
@@ -86,7 +87,134 @@ int Score::analyze_theme(Melody *melody) {
     } else {
         //do nothing
     }
-    return score;
+    return score;*/
+
+    int mono_capacity = MONO_WINDOW;
+    int general_capacity = BI_TRI_WINDOW;
+    int num_match_bi=0;
+    int num_match_tri=0;
+    int num_match_mono=0;
+    float score_bi = 0;
+    float score_tri = 0;
+    float score_mono = 0;
+    int mel_size = melody->get_size();
+    Note *theme_window_mono = new Note[mono_capacity];
+    Note *theme_window = new Note[general_capacity];
+    int k=0;
+
+    for(int i=0; i<general_capacity; i++){
+        Note n = melody->note_at(i);
+        theme_window[i] = n;
+    }
+
+    //forma bipartita
+    //tema A
+    int variationA = melody->note_at(general_capacity).get_key_num() - theme_window[0].get_key_num();
+    k = 1;
+    for(int j=general_capacity + 1;j<general_capacity*2;j++)
+    {
+        if(abs(melody->note_at(j).get_key_num() - theme_window[k].get_key_num()) == variationA
+           && melody->note_at(j).get_duration() == theme_window[k].get_duration())
+            num_match_bi++;
+        k++;
+    }
+
+    delete []theme_window;
+    theme_window = new Note[general_capacity];
+    //tema B
+    k=0;
+    for(int i=(mel_size - (general_capacity*2)); i<(mel_size - general_capacity); i++){
+        Note n = melody->note_at(i);
+        theme_window[k] = n;
+        k++;
+    }
+    k=0;
+    int variationB = melody->note_at(mel_size - general_capacity).get_key_num() - theme_window[0].get_key_num();
+    k = 1;
+    for(int j=(mel_size - general_capacity) + 1;j<mel_size;j++)
+    {
+        if(abs(melody->note_at(j).get_key_num() - theme_window[k].get_key_num()) == variationB
+           && melody->note_at(j).get_duration() == theme_window[k].get_duration())
+            num_match_bi++;
+        k++;
+    }
+    if(FORM_MUSIC == "BIPARTITA")
+        score_bi = THEME_POINTS + THEME_POINTS*pow(PROG_POW_BASE, (num_match_bi/2)*BI_CHOSEN);
+    else
+        score_bi = THEME_POINTS + THEME_POINTS*pow(PROG_POW_BASE, (num_match_bi/2));
+
+    //forma tripartita
+    delete[] theme_window;
+    theme_window = new Note[general_capacity];
+    for(int i=0; i<general_capacity; i++){
+        Note n = melody->note_at(i);
+        theme_window[i] = n;
+    }
+    k=0;
+    for(int j=mel_size - general_capacity;j<mel_size;j++)
+    {
+        if(melody->note_at(j).get_key_num() == theme_window[k].get_key_num()
+           && melody->note_at(j).get_duration() == theme_window[k].get_duration())
+            num_match_tri++;
+        k++;
+
+    }
+    if(FORM_MUSIC == "TRIPARTITA")
+        score_tri = THEME_POINTS + THEME_POINTS*pow(PROG_POW_BASE, (num_match_tri*TRI_CHOSEN));
+    else
+        score_tri = THEME_POINTS + THEME_POINTS*pow(PROG_POW_BASE, (num_match_tri));
+
+    //monopartita
+
+    for(int i=0; i<mono_capacity; i++){
+        Note n = melody->note_at(i);
+        theme_window_mono[i] = n;
+    }
+    int first_note = mono_capacity;
+    while(first_note <= mel_size)
+    {
+        k=0;
+        for(int j=first_note;j<first_note + mono_capacity;j++)
+        {
+            if(melody->note_at(j).get_key_num() == theme_window_mono[k].get_key_num()
+            && melody->note_at(j).get_duration() == theme_window_mono[k].get_duration())
+                num_match_mono++;
+            k++;
+            if( j == mel_size - 1)
+                break;
+        }
+        first_note = first_note + mono_capacity;
+    }
+    if( FORM_MUSIC == "MONOPARTITA")
+        score_mono = THEME_POINTS + THEME_POINTS*pow(PROG_POW_BASE, (num_match_mono/3)*MONO_CHOSEN);
+    else
+        score_mono = THEME_POINTS + THEME_POINTS*pow(PROG_POW_BASE, (num_match_mono/3));
+
+    string form_confronto = "";
+    int max = 0;
+    if (score_bi >= score_tri){
+        max = score_bi;
+        melody->set_form_used("BIPARTITA");
+        melody->set_num_match(num_match_bi);
+        form_confronto = "BIPARTITA";
+    }
+    else{
+        max = score_tri;
+        melody->set_form_used("TRIPARTITA");
+        melody->set_num_match(num_match_tri);
+        form_confronto = "TRIPARTITA";
+    }
+    if(score_mono > max){
+        max = score_mono;
+        melody->set_form_used("MONOPARTITA");
+        melody->set_num_match(num_match_mono);
+        form_confronto = "MONOPARTITA";
+    }
+    if(form_confronto == FORM_MUSIC)
+        max = max * THEME_POINTS * 4;
+    delete[] theme_window;
+    delete[] theme_window_mono;
+    return max;
 
 }
 
@@ -135,8 +263,7 @@ int Score::analyze_progression(Melody *melody) {
                 // aumenta lo score in modo esponenziale quando trova una sequenza di accordi che seguono i pattern
                 // = 20*2^num_match
                 //--> lo valuta molto (ci può stare)
-                score +=
-                        (CHORD_PROGRESSION_REWARD
+                score += (CHORD_PROGRESSION_REWARD
                          * pow(PROG_POW_BASE, num_matches));
                 num_matches++;
             }
