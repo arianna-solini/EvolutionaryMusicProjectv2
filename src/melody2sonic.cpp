@@ -32,6 +32,7 @@ void melody2sonic(Melody *melody, std::string filename)
 
 	output << "use_synth :piano" << endl;
 	output << "#Forma musicale: " << melody->get_form_used() << endl;
+    output << "#Num match: " << melody->get_num_match() << endl;
 	while (note_iterator < mel_size)
 	{
 		// get the note

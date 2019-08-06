@@ -110,7 +110,7 @@ const int SMOOTHNESS_POINTS = 1;
 const int STRONG_BEAT_LONG = 10; // > 0.25
 
 //points assigned to recognition of a pattern (theme)
-const int THEME_POINTS = 10;
+const int THEME_POINTS = 40;
 //const float MONO_CHOSEN = 5;
 //const float BI_CHOSEN = 5;
 //const float TRI_CHOSEN = 5;

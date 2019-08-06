@@ -34,7 +34,9 @@ Melody::Melody(Melody &mom, Melody &dad)
         //form_used="BBBBBBBBBB";
 
         int note_counter = 0;
-       /* while (note_counter < count)
+
+        /*
+        while (note_counter < count)
         {
                 int method = random_int(1, 4);
 
@@ -68,7 +70,9 @@ Melody::Melody(Melody &mom, Melody &dad)
                 }
 
                 note_counter += ALLELE_WINDOW;
-        }*/
+        }
+
+     */
         int method = random_int(1,4);
         //mamma - note; padre - ritmo
         if(method == 1)
@@ -274,6 +278,7 @@ Melody& Melody::operator=(Melody &melody)
         capacity = melody.capacity;
         count = melody.count;
         form_used = melody.form_used;
+        num_match = melody.num_match;
 
         // deep copy
         notes = new Note[count];
@@ -460,8 +465,8 @@ void Melody::mutate()
             }
         }
 
-        if(random_int(1, 100) <= (int) (THEME_CHANCE * 100))
-            thematic_generation(random_int(1,3));
+        //if(random_int(1, 100) <= (int) (THEME_CHANCE * 100))
+          //  thematic_generation(random_int(1,3));
 
 }
 
@@ -505,18 +510,24 @@ void Melody::thematic_generation(int form)
                         theme_window_mono[i]= notes[i];
                 }
                 int first_note = mono_capacity;
-                while(first_note+mono_capacity <= count)
+                while(first_note <= count)
                 { 
                         
                         form_used = "MONOPARTITA";
                         k=0;
-                        for(int j=first_note;j<first_note + mono_capacity;j++)
+
+                        int end =  first_note + mono_capacity;
+                        if(first_note+mono_capacity > count){
+                            end = count;
+                        }
+                        for(int j=first_note;j<end;j++)
                         {
                                 notes[j] = theme_window_mono[k];
                                 k++;
                         }
                         first_note = first_note + mono_capacity;
                 }
+
                
         }
         k=0;
