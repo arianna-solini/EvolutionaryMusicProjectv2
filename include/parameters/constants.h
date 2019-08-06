@@ -85,7 +85,7 @@ const float SMOOTHING_CHANCE = 0.5;
 const float RHYTHMIC_REDISTRIBUTION_CHANCE = 0.8;
 const float NOTE_MUTATION_CHANCE = 0.4;
 
-const float THEME_CHANCE = 0.8;
+const float THEME_CHANCE = 0.5;
 
 const int SMOOTHING_ATTEMPTS = 10;
 const int RHYTHMIC_REDISTRIBUTION_ATTEMPTS = 10;
@@ -95,13 +95,13 @@ const int RHYTHMIC_REDISTRIBUTION_ATTEMPTS = 10;
 ////////////////////////////////////////////////////////////////
 
 // points assigned to notes in the key
-const int DIATONIC_WEIGHT = 100;
+const int DIATONIC_WEIGHT = 200;
 
 // points assigned to recognizing a chord progression
 const int CHORD_PROGRESSION_REWARD = 20;
 
 // points assigned if melody starts/ends on tonic note
-const int TONIC_ENDPOINTS = 30;
+const int TONIC_ENDPOINTS = 70;
 
 // points assigned to smoothness based on absolute pitch
 const int SMOOTHNESS_POINTS = 1;
@@ -111,9 +111,9 @@ const int STRONG_BEAT_LONG = 10; // > 0.25
 
 //points assigned to recognition of a pattern (theme)
 const int THEME_POINTS = 40;
-//const float MONO_CHOSEN = 5;
-//const float BI_CHOSEN = 5;
-//const float TRI_CHOSEN = 5;
+const float MONO_CHOSEN = 5;
+const float BI_CHOSEN = 5;
+const float TRI_CHOSEN = 5;
 
 //points assigned to sensible resolving on tonic
 const int SENSIBLE_POINTS = 50;

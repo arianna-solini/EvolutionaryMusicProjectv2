@@ -515,19 +515,15 @@ void Melody::thematic_generation(int form)
                         
                         form_used = "MONOPARTITA";
                         k=0;
-
-                        int end =  first_note + mono_capacity;
-                        if(first_note+mono_capacity > count){
-                            end = count;
-                        }
-                        for(int j=first_note;j<end;j++)
+                        for(int j=first_note;j<first_note + mono_capacity;j++)
                         {
                                 notes[j] = theme_window_mono[k];
                                 k++;
+                                if( j == count - 1)
+                                    break;
                         }
                         first_note = first_note + mono_capacity;
                 }
-
                
         }
         k=0;
