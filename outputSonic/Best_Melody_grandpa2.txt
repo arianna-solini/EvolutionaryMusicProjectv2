@@ -1,123 +1,123 @@
 use_synth :piano
 #Forma musicale: TRIPARTITA
-#num_match: 2
-play 50, sustain: 0.5
-sleep 0.5
-#pausa
-sleep 0.5
-play 54, sustain: 0.5
-sleep 0.5
-play 61, sustain: 0.5
-sleep 0.5
-#pausa
-sleep 0.5
-play 54, sustain: 0.5
-sleep 0.5
-play 46, sustain: 0.5
-sleep 0.5
-play 43, sustain: 0.5
-sleep 0.5
-play 36, sustain: 0.5
-sleep 0.5
-play 37, sustain: 0.5
-sleep 0.5
-play 43, sustain: 0.5
-sleep 0.5
-play 37, sustain: 0.5
-sleep 0.5
-play 43, sustain: 0.5
-sleep 0.5
-#pausa
-sleep 0.5
-play 51, sustain: 0.5
-sleep 0.5
-play 50, sustain: 0.5
-sleep 0.5
-play 51, sustain: 0.5
-sleep 0.5
-play 61, sustain: 0.5
-sleep 0.5
-play 62, sustain: 0.5
-sleep 0.5
-play 60, sustain: 0.5
-sleep 0.5
-play 59, sustain: 0.75
+#Num match: 2
+play 46, sustain: 0.75
 sleep 0.75
-#pausa
+play 81, sustain: 0.25
 sleep 0.25
-play 53, sustain: 0.75
-sleep 0.75
-play 58, sustain: 0.25
-sleep 0.25
-play 49, sustain: 0.5
+play 27, sustain: 0.5
 sleep 0.5
-play 50, sustain: 0.5
+play 32, sustain: 0.5
 sleep 0.5
-play 43, sustain: 0.5
+play 44, sustain: 0.5
 sleep 0.5
-play 45, sustain: 0.5
+play 47, sustain: 0.5
 sleep 0.5
-play 38, sustain: 0.5
+play 35, sustain: 0.5
 sleep 0.5
-play 46, sustain: 0.5
-sleep 0.5
-play 50, sustain: 0.5
+play 44, sustain: 0.5
 sleep 0.5
 play 41, sustain: 0.5
 sleep 0.5
-play 42, sustain: 0.5
+play 43, sustain: 0.5
+sleep 0.5
+play 44, sustain: 0.5
 sleep 0.5
 #pausa
-sleep 0.5
-play 58, sustain: 0.5
-sleep 0.5
-play 62, sustain: 0.5
-sleep 0.5
-play 56, sustain: 0.5
 sleep 0.5
 play 45, sustain: 0.5
 sleep 0.5
-play 53, sustain: 0.5
+play 52, sustain: 0.5
 sleep 0.5
-play 64, sustain: 0.5
+play 40, sustain: 0.5
 sleep 0.5
-play 65, sustain: 0.5
+play 40, sustain: 0.5
 sleep 0.5
-play 68, sustain: 0.75
-sleep 0.75
-play 72, sustain: 0.25
-sleep 0.25
-play 72, sustain: 0.5
-sleep 0.5
-play 67, sustain: 0.5
-sleep 0.5
-play 66, sustain: 0.5
-sleep 0.5
-play 68, sustain: 0.5
-sleep 0.5
-play 65, sustain: 0.75
-sleep 0.75
-play 64, sustain: 0.25
-sleep 0.25
-play 50, sustain: 0.5
-sleep 0.5
-play 51, sustain: 0.5
-sleep 0.5
-play 42, sustain: 0.5
+#pausa
 sleep 0.5
 play 43, sustain: 0.5
 sleep 0.5
-play 53, sustain: 0.5
-sleep 0.5
-play 56, sustain: 0.5
-sleep 0.5
-play 57, sustain: 0.5
-sleep 0.5
-play 46, sustain: 0.5
-sleep 0.5
-play 46, sustain: 0.5
+play 43, sustain: 0.5
 sleep 0.5
 play 36, sustain: 0.5
 sleep 0.5
+play 46, sustain: 0.5
+sleep 0.5
+play 55, sustain: 0.5
+sleep 0.5
+play 56, sustain: 0.5
+sleep 0.5
+play 48, sustain: 0.5
+sleep 0.5
+play 48, sustain: 0.5
+sleep 0.5
+play 46, sustain: 0.5
+sleep 0.5
+play 53, sustain: 0.5
+sleep 0.5
 #pausa
+sleep 0.5
+#pausa
+sleep 0.5
+play 62, sustain: 0.5
+sleep 0.5
+play 55, sustain: 0.5
+sleep 0.5
+play 67, sustain: 0.5
+sleep 0.5
+play 67, sustain: 0.5
+sleep 0.5
+play 71, sustain: 0.5
+sleep 0.5
+play 62, sustain: 0.5
+sleep 0.5
+play 61, sustain: 0.5
+sleep 0.5
+play 60, sustain: 0.5
+sleep 0.5
+play 66, sustain: 0.5
+sleep 0.5
+play 63, sustain: 0.5
+sleep 0.5
+play 62, sustain: 0.5
+sleep 0.5
+play 54, sustain: 0.5
+sleep 0.5
+play 49, sustain: 0.5
+sleep 0.5
+play 47, sustain: 0.5
+sleep 0.5
+play 56, sustain: 0.5
+sleep 0.5
+play 46, sustain: 0.5
+sleep 0.5
+play 52, sustain: 0.5
+sleep 0.5
+play 43, sustain: 0.5
+sleep 0.5
+#pausa
+sleep 0.5
+play 29, sustain: 0.5
+sleep 0.5
+#pausa
+sleep 0.5
+#pausa
+sleep 0.5
+play 35, sustain: 0.5
+sleep 0.5
+play 27, sustain: 0.5
+sleep 0.5
+#pausa
+sleep 0.5
+play 39, sustain: 0.5
+sleep 0.5
+play 46, sustain: 0.5
+sleep 0.5
+play 35, sustain: 0.5
+sleep 0.5
+play 38, sustain: 0.5
+sleep 0.5
+play 37, sustain: 0.5
+sleep 0.5
+play 41, sustain: 0.5
 sleep 0.5
