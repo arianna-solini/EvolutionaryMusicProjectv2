@@ -78,7 +78,6 @@ void options()
 	cout << "	# Output File Name: Best_Melody" << endl;
     cout << "	# Selection Mechanism: roulette" << endl;
 	cout << "	# Form of the melodies: TRIPARTITA" << endl;
-// ciao ciao ciao
 
 	string response;
 	cout <<"Use default options? Type \"yes\" or \"no\": " << endl;
