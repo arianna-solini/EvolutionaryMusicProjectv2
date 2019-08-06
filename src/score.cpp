@@ -142,7 +142,7 @@ int Score::analyze_theme(Melody *melody) {
         score_bi = THEME_POINTS + THEME_POINTS*pow(PROG_POW_BASE, (num_match_bi/2)*BI_CHOSEN);
     else
         score_bi = THEME_POINTS + THEME_POINTS*pow(PROG_POW_BASE, (num_match_bi/2));
-
+    //
     //forma tripartita
     delete[] theme_window;
     theme_window = new Note[general_capacity];
